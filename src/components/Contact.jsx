@@ -50,7 +50,7 @@ export default function Contact() {
               <h2 className="text-3xl sm:text-4xl font-extrabold">Let’s build something great</h2>
               <p className="mt-3 text-sm text-white/70">Tell us about your product or challenge and we’ll get back within one business day.</p>
               <div className="mt-8 grid sm:grid-cols-1 gap-4 text-sm text-white/70">
-                <div>✉️ stensize.technologies@gmail.com</div>
+                <div>✉️ information@stensize.com</div>
               </div>
               <div className="mt-8 grid sm:grid-cols-1 gap-4 text-sm text-white/70">
                 <div>☎️ +91 91062 73753</div>
