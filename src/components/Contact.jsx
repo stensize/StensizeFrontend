@@ -23,20 +23,23 @@ export default function Contact() {
       setLoading(true);
       setSuccess(null);
       try {
-        const res = await fetch('https://stensizebackend.onrender.com/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form),
-        });
-        const data = await res.json();
-        if (data.success) {
-          setSuccess('Message sent successfully!');
-          setForm({ name: '', email: '', message: '' });
-        } else {
-          setSuccess('Failed to send message.');
-        }
+        const sendInquiry = async (formData) => {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          });
+
+          if (response.ok) {
+            console.log("Inquiry sent successfully!");
+          } else {
+            console.log("Something went wrong.");
+            setSuccess('Error sending message. Please mail on given email address in contacts.');
+          }
+          setLoading(true);
+        };
       } catch (err) {
-        setSuccess('Error sending message.');
+        setSuccess('Error sending message. Please mail on given email address in contacts.');
       }
       setLoading(false);
       setTimeout(() => setSuccess(null), 2200);
