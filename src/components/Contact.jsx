@@ -23,8 +23,7 @@ export default function Contact() {
       setLoading(true);
       setSuccess(null);
       try {
-        const sendInquiry = async (formData) => {
-          const response = await fetch('/api/contact', {
+        const response = await fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
@@ -36,8 +35,6 @@ export default function Contact() {
             console.log("Something went wrong.");
             setSuccess('Error sending message. Please mail on given email address in contacts.');
           }
-          setLoading(true);
-        };
       } catch (err) {
         setSuccess('Error sending message. Please mail on given email address in contacts.');
       }
